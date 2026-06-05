@@ -1,35 +1,20 @@
-import { Bot, SendHorizontal } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Bot, ArrowDownRight } from "lucide-react";
 
-type AiCommandBoxProps = {
-  placeholder?: string;
-};
-
-export function AiCommandBox({
-  placeholder = "Hỏi AI Assistant về lịch thuốc, cảnh báo, chỉ số sức khỏe hoặc tin nhắn nghi lừa đảo..."
-}: AiCommandBoxProps) {
+export function AiCommandBox() {
   return (
-    <div className="rounded-3xl border border-primary/20 bg-card p-4 shadow-sm">
-      <div className="mb-3 flex items-center gap-2 text-sm font-semibold">
-        <Bot className="size-5 text-primary" />
-        AI Assistant trung tâm
+    <div className="rounded-3xl border border-primary/20 bg-primary/5 p-4 shadow-sm flex items-center justify-between">
+      <div className="flex items-center gap-3">
+        <div className="bg-primary p-2 rounded-full">
+          <Bot className="size-5 text-primary-foreground" />
+        </div>
+        <div>
+          <h4 className="text-sm font-semibold text-primary">AI Assistant đã được nâng cấp</h4>
+          <p className="text-xs text-muted-foreground">
+            Trợ lý trung tâm hiện đã được chuyển xuống góc phải màn hình.
+          </p>
+        </div>
       </div>
-
-      <div className="flex gap-3">
-        <Textarea
-          placeholder={placeholder}
-          className="min-h-20 resize-none rounded-2xl"
-          disabled
-        />
-        <Button type="button" size="icon" className="size-11 shrink-0 rounded-2xl" disabled>
-          <SendHorizontal className="size-5" />
-        </Button>
-      </div>
-
-      <p className="mt-3 text-xs text-muted-foreground">
-        UI đã chuẩn bị ở Cụm 2. Backend API và n8n sẽ nối ở cụm AI.
-      </p>
+      <ArrowDownRight className="size-6 text-primary animate-bounce hidden sm:block" />
     </div>
   );
 }
