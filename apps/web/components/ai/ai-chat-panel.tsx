@@ -388,7 +388,7 @@ export function AiChatPanel({ role }: { role: AppRole }) {
                 )}
                 {currentMessages.map((msg, idx) => (
                   <div key={idx} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                    <div className={`max-w-[85%] rounded-2xl p-3 text-sm shadow-sm ${msg.role === "user" ? "bg-blue-600 text-white rounded-br-sm" : "bg-white dark:bg-slate-800 border text-slate-800 dark:text-slate-200 rounded-bl-sm"}`}>
+                    <div className={`max-w-[85%] rounded-2xl p-3 text-sm shadow-sm whitespace-pre-wrap ${msg.role === "user" ? "bg-blue-600 text-white rounded-br-sm" : "bg-white dark:bg-slate-800 border text-slate-800 dark:text-slate-200 rounded-bl-sm"}`}>
                       {msg.content}
                     </div>
                   </div>
