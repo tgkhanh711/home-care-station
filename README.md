@@ -89,7 +89,12 @@ home-care-station
 │     │  │  │     │  ├─ 26.pack.gz
 │     │  │  │     │  ├─ 27.pack.gz
 │     │  │  │     │  ├─ 28.pack.gz
+│     │  │  │     │  ├─ 29.pack.gz
 │     │  │  │     │  ├─ 3.pack.gz
+│     │  │  │     │  ├─ 30.pack.gz
+│     │  │  │     │  ├─ 31.pack.gz
+│     │  │  │     │  ├─ 32.pack.gz
+│     │  │  │     │  ├─ 33.pack.gz
 │     │  │  │     │  ├─ 4.pack.gz
 │     │  │  │     │  ├─ 5.pack.gz
 │     │  │  │     │  ├─ 6.pack.gz
@@ -140,6 +145,13 @@ home-care-station
 │     │  │  │        ├─ 39.pack.gz
 │     │  │  │        ├─ 4.pack.gz
 │     │  │  │        ├─ 40.pack.gz
+│     │  │  │        ├─ 41.pack.gz
+│     │  │  │        ├─ 42.pack.gz
+│     │  │  │        ├─ 43.pack.gz
+│     │  │  │        ├─ 44.pack.gz
+│     │  │  │        ├─ 45.pack.gz
+│     │  │  │        ├─ 46.pack.gz
+│     │  │  │        ├─ 47.pack.gz
 │     │  │  │        ├─ 5.pack.gz
 │     │  │  │        ├─ 6.pack.gz
 │     │  │  │        ├─ 7.pack.gz
@@ -147,7 +159,6 @@ home-care-station
 │     │  │  │        ├─ 9.pack.gz
 │     │  │  │        ├─ index.pack.gz
 │     │  │  │        └─ index.pack.gz.old
-│     │  │  ├─ lock
 │     │  │  ├─ logs
 │     │  │  │  └─ next-development.log
 │     │  │  ├─ package.json
@@ -156,17 +167,20 @@ home-care-station
 │     │  │  ├─ routes-manifest.json
 │     │  │  ├─ server
 │     │  │  │  ├─ app
-│     │  │  │  │  ├─ doctor
-│     │  │  │  │  │  ├─ aibot
+│     │  │  │  │  ├─ caregiver
+│     │  │  │  │  │  ├─ aicare
 │     │  │  │  │  │  │  ├─ page.js
 │     │  │  │  │  │  │  └─ page_client-reference-manifest.js
 │     │  │  │  │  │  ├─ page.js
+│     │  │  │  │  │  ├─ page_client-reference-manifest.js
+│     │  │  │  │  │  └─ prescriptions
+│     │  │  │  │  │     ├─ page.js
+│     │  │  │  │  │     └─ page_client-reference-manifest.js
+│     │  │  │  │  ├─ login
+│     │  │  │  │  │  ├─ page.js
 │     │  │  │  │  │  └─ page_client-reference-manifest.js
 │     │  │  │  │  ├─ page.js
-│     │  │  │  │  ├─ page_client-reference-manifest.js
-│     │  │  │  │  └─ _not-found
-│     │  │  │  │     ├─ page.js
-│     │  │  │  │     └─ page_client-reference-manifest.js
+│     │  │  │  │  └─ page_client-reference-manifest.js
 │     │  │  │  ├─ app-paths-manifest.json
 │     │  │  │  ├─ interception-route-rewrite-manifest.js
 │     │  │  │  ├─ middleware-build-manifest.js
@@ -175,10 +189,6 @@ home-care-station
 │     │  │  │  ├─ middleware.js
 │     │  │  │  ├─ next-font-manifest.js
 │     │  │  │  ├─ next-font-manifest.json
-│     │  │  │  ├─ pages
-│     │  │  │  │  ├─ _app.js
-│     │  │  │  │  ├─ _document.js
-│     │  │  │  │  └─ _error.js
 │     │  │  │  ├─ pages-manifest.json
 │     │  │  │  ├─ server-reference-manifest.js
 │     │  │  │  ├─ server-reference-manifest.json
@@ -194,31 +204,25 @@ home-care-station
 │     │  │  │  │  ├─ next.js
 │     │  │  │  │  ├─ tailwind-merge.js
 │     │  │  │  │  ├─ tslib.js
-│     │  │  │  │  └─ zustand.js
-│     │  │  │  ├─ webpack-runtime.js
-│     │  │  │  ├─ _error.js
-│     │  │  │  └─ _rsc_lib_supabase_admin_ts.js
+│     │  │  │  │  └─ zod.js
+│     │  │  │  └─ webpack-runtime.js
 │     │  │  ├─ static
 │     │  │  │  ├─ chunks
 │     │  │  │  │  ├─ app
-│     │  │  │  │  │  ├─ doctor
-│     │  │  │  │  │  │  ├─ aibot
+│     │  │  │  │  │  ├─ caregiver
+│     │  │  │  │  │  │  ├─ aicare
 │     │  │  │  │  │  │  │  └─ page.js
-│     │  │  │  │  │  │  └─ page.js
+│     │  │  │  │  │  │  ├─ page.js
+│     │  │  │  │  │  │  └─ prescriptions
+│     │  │  │  │  │  │     └─ page.js
 │     │  │  │  │  │  ├─ layout.js
-│     │  │  │  │  │  ├─ page.js
-│     │  │  │  │  │  └─ _not-found
-│     │  │  │  │  │     └─ page.js
+│     │  │  │  │  │  ├─ login
+│     │  │  │  │  │  │  └─ page.js
+│     │  │  │  │  │  └─ page.js
 │     │  │  │  │  ├─ app-pages-internals.js
 │     │  │  │  │  ├─ main-app.js
-│     │  │  │  │  ├─ main.js
-│     │  │  │  │  ├─ pages
-│     │  │  │  │  │  ├─ _app.js
-│     │  │  │  │  │  └─ _error.js
 │     │  │  │  │  ├─ polyfills.js
-│     │  │  │  │  ├─ react-refresh.js
-│     │  │  │  │  ├─ webpack.js
-│     │  │  │  │  └─ _error.js
+│     │  │  │  │  └─ webpack.js
 │     │  │  │  ├─ css
 │     │  │  │  │  └─ app
 │     │  │  │  │     └─ layout.css
@@ -234,67 +238,83 @@ home-care-station
 │     │  │  │  │  ├─ df0a9ae256c0569c-s.p.woff2
 │     │  │  │  │  └─ e4af272ccee01ff0-s.p.woff2
 │     │  │  │  └─ webpack
-│     │  │  │     ├─ 10c182132a5e8aa7.webpack.hot-update.json
-│     │  │  │     ├─ 13ee33f2c949bbe3.webpack.hot-update.json
-│     │  │  │     ├─ 37cb5b39b47680cd.webpack.hot-update.json
-│     │  │  │     ├─ 382be9c17eb01475.webpack.hot-update.json
-│     │  │  │     ├─ 38409ca6496870c8.webpack.hot-update.json
-│     │  │  │     ├─ 3a113febba780f8f.webpack.hot-update.json
-│     │  │  │     ├─ 3e979989dfce0cf7.webpack.hot-update.json
-│     │  │  │     ├─ 548c7a01cc31fc21.webpack.hot-update.json
-│     │  │  │     ├─ 5a1647cd23ef5456.webpack.hot-update.json
+│     │  │  │     ├─ 023601400ccc52e1.webpack.hot-update.json
+│     │  │  │     ├─ 05c08d2c897527a2.webpack.hot-update.json
+│     │  │  │     ├─ 0e84b94ebe48af5f.webpack.hot-update.json
+│     │  │  │     ├─ 12b059a4d454a99a.webpack.hot-update.json
+│     │  │  │     ├─ 1ba48fec1b7ab7ed.webpack.hot-update.json
+│     │  │  │     ├─ 29c1f1a7e6f204fa.webpack.hot-update.json
+│     │  │  │     ├─ 446ed8245560819a.webpack.hot-update.json
 │     │  │  │     ├─ 633457081244afec._.hot-update.json
-│     │  │  │     ├─ 68ae4104398453c0.webpack.hot-update.json
-│     │  │  │     ├─ 72811c2dccdebf6b.webpack.hot-update.json
-│     │  │  │     ├─ 9d05625d756e8d68.webpack.hot-update.json
-│     │  │  │     ├─ ad1963926e7e79ba.webpack.hot-update.json
-│     │  │  │     ├─ afb5c8a2e0ce9f30.webpack.hot-update.json
+│     │  │  │     ├─ 6418645dd4a302ce.webpack.hot-update.json
+│     │  │  │     ├─ 67fd59701a0e970a.webpack.hot-update.json
+│     │  │  │     ├─ 6d3124fe5af7bab9.webpack.hot-update.json
+│     │  │  │     ├─ ab946b0ad597be98.webpack.hot-update.json
 │     │  │  │     ├─ app
-│     │  │  │     │  ├─ doctor
-│     │  │  │     │  │  └─ aibot
-│     │  │  │     │  │     └─ page.382be9c17eb01475.hot-update.js
-│     │  │  │     │  ├─ layout.10c182132a5e8aa7.hot-update.js
-│     │  │  │     │  ├─ layout.37cb5b39b47680cd.hot-update.js
-│     │  │  │     │  ├─ layout.38409ca6496870c8.hot-update.js
-│     │  │  │     │  ├─ layout.3a113febba780f8f.hot-update.js
-│     │  │  │     │  ├─ layout.3e979989dfce0cf7.hot-update.js
-│     │  │  │     │  ├─ layout.5a1647cd23ef5456.hot-update.js
-│     │  │  │     │  ├─ layout.68ae4104398453c0.hot-update.js
-│     │  │  │     │  ├─ layout.9d05625d756e8d68.hot-update.js
-│     │  │  │     │  ├─ layout.ad1963926e7e79ba.hot-update.js
-│     │  │  │     │  ├─ layout.d6fe6983886367ca.hot-update.js
-│     │  │  │     │  ├─ layout.e59a27a7877709c5.hot-update.js
-│     │  │  │     │  └─ layout.fd11a99fa4a60016.hot-update.js
-│     │  │  │     ├─ d6fe6983886367ca.webpack.hot-update.json
-│     │  │  │     ├─ e59a27a7877709c5.webpack.hot-update.json
-│     │  │  │     ├─ e775c1095543d6d6.webpack.hot-update.json
-│     │  │  │     ├─ fd11a99fa4a60016.webpack.hot-update.json
-│     │  │  │     ├─ webpack.10c182132a5e8aa7.hot-update.js
-│     │  │  │     ├─ webpack.13ee33f2c949bbe3.hot-update.js
-│     │  │  │     ├─ webpack.37cb5b39b47680cd.hot-update.js
-│     │  │  │     ├─ webpack.382be9c17eb01475.hot-update.js
-│     │  │  │     ├─ webpack.38409ca6496870c8.hot-update.js
-│     │  │  │     ├─ webpack.3a113febba780f8f.hot-update.js
-│     │  │  │     ├─ webpack.3e979989dfce0cf7.hot-update.js
-│     │  │  │     ├─ webpack.548c7a01cc31fc21.hot-update.js
-│     │  │  │     ├─ webpack.5a1647cd23ef5456.hot-update.js
-│     │  │  │     ├─ webpack.68ae4104398453c0.hot-update.js
-│     │  │  │     ├─ webpack.72811c2dccdebf6b.hot-update.js
-│     │  │  │     ├─ webpack.9d05625d756e8d68.hot-update.js
-│     │  │  │     ├─ webpack.ad1963926e7e79ba.hot-update.js
-│     │  │  │     ├─ webpack.afb5c8a2e0ce9f30.hot-update.js
-│     │  │  │     ├─ webpack.d6fe6983886367ca.hot-update.js
-│     │  │  │     ├─ webpack.e59a27a7877709c5.hot-update.js
-│     │  │  │     ├─ webpack.e775c1095543d6d6.hot-update.js
-│     │  │  │     └─ webpack.fd11a99fa4a60016.hot-update.js
+│     │  │  │     │  ├─ caregiver
+│     │  │  │     │  │  └─ aicare
+│     │  │  │     │  │     ├─ page.29c1f1a7e6f204fa.hot-update.js
+│     │  │  │     │  │     └─ page.6d3124fe5af7bab9.hot-update.js
+│     │  │  │     │  ├─ layout.023601400ccc52e1.hot-update.js
+│     │  │  │     │  ├─ layout.05c08d2c897527a2.hot-update.js
+│     │  │  │     │  ├─ layout.0e84b94ebe48af5f.hot-update.js
+│     │  │  │     │  ├─ layout.12b059a4d454a99a.hot-update.js
+│     │  │  │     │  ├─ layout.1ba48fec1b7ab7ed.hot-update.js
+│     │  │  │     │  ├─ layout.29c1f1a7e6f204fa.hot-update.js
+│     │  │  │     │  ├─ layout.6418645dd4a302ce.hot-update.js
+│     │  │  │     │  ├─ layout.67fd59701a0e970a.hot-update.js
+│     │  │  │     │  ├─ layout.6d3124fe5af7bab9.hot-update.js
+│     │  │  │     │  ├─ layout.ab946b0ad597be98.hot-update.js
+│     │  │  │     │  ├─ layout.b734606a5cd173c0.hot-update.js
+│     │  │  │     │  ├─ layout.b95e667172a4c94a.hot-update.js
+│     │  │  │     │  ├─ layout.bb756004f59411a6.hot-update.js
+│     │  │  │     │  ├─ layout.d8186f5c827918b6.hot-update.js
+│     │  │  │     │  ├─ layout.dc1bb9aaf0d81deb.hot-update.js
+│     │  │  │     │  ├─ layout.e8e6c7c37443ef16.hot-update.js
+│     │  │  │     │  └─ layout.f430f74b8681cc6c.hot-update.js
+│     │  │  │     ├─ b734606a5cd173c0.webpack.hot-update.json
+│     │  │  │     ├─ b95e667172a4c94a.webpack.hot-update.json
+│     │  │  │     ├─ bb756004f59411a6.webpack.hot-update.json
+│     │  │  │     ├─ d65a79b018024dc3.webpack.hot-update.json
+│     │  │  │     ├─ d8186f5c827918b6.webpack.hot-update.json
+│     │  │  │     ├─ dc1bb9aaf0d81deb.webpack.hot-update.json
+│     │  │  │     ├─ e303b47c7b5db8a9.webpack.hot-update.json
+│     │  │  │     ├─ e8e6c7c37443ef16.webpack.hot-update.json
+│     │  │  │     ├─ f430f74b8681cc6c.webpack.hot-update.json
+│     │  │  │     ├─ f908b72c9025890c.webpack.hot-update.json
+│     │  │  │     ├─ webpack.023601400ccc52e1.hot-update.js
+│     │  │  │     ├─ webpack.05c08d2c897527a2.hot-update.js
+│     │  │  │     ├─ webpack.0e84b94ebe48af5f.hot-update.js
+│     │  │  │     ├─ webpack.12b059a4d454a99a.hot-update.js
+│     │  │  │     ├─ webpack.1ba48fec1b7ab7ed.hot-update.js
+│     │  │  │     ├─ webpack.29c1f1a7e6f204fa.hot-update.js
+│     │  │  │     ├─ webpack.446ed8245560819a.hot-update.js
+│     │  │  │     ├─ webpack.6418645dd4a302ce.hot-update.js
+│     │  │  │     ├─ webpack.67fd59701a0e970a.hot-update.js
+│     │  │  │     ├─ webpack.6d3124fe5af7bab9.hot-update.js
+│     │  │  │     ├─ webpack.ab946b0ad597be98.hot-update.js
+│     │  │  │     ├─ webpack.b734606a5cd173c0.hot-update.js
+│     │  │  │     ├─ webpack.b95e667172a4c94a.hot-update.js
+│     │  │  │     ├─ webpack.bb756004f59411a6.hot-update.js
+│     │  │  │     ├─ webpack.d65a79b018024dc3.hot-update.js
+│     │  │  │     ├─ webpack.d8186f5c827918b6.hot-update.js
+│     │  │  │     ├─ webpack.dc1bb9aaf0d81deb.hot-update.js
+│     │  │  │     ├─ webpack.e303b47c7b5db8a9.hot-update.js
+│     │  │  │     ├─ webpack.e8e6c7c37443ef16.hot-update.js
+│     │  │  │     ├─ webpack.f430f74b8681cc6c.hot-update.js
+│     │  │  │     └─ webpack.f908b72c9025890c.hot-update.js
 │     │  │  ├─ trace
 │     │  │  └─ types
 │     │  │     ├─ app
-│     │  │     │  ├─ doctor
-│     │  │     │  │  ├─ aibot
+│     │  │     │  ├─ caregiver
+│     │  │     │  │  ├─ aicare
 │     │  │     │  │  │  └─ page.ts
-│     │  │     │  │  └─ page.ts
+│     │  │     │  │  ├─ page.ts
+│     │  │     │  │  └─ prescriptions
+│     │  │     │  │     └─ page.ts
 │     │  │     │  ├─ layout.ts
+│     │  │     │  ├─ login
+│     │  │     │  │  └─ page.ts
 │     │  │     │  └─ page.ts
 │     │  │     ├─ cache-life.d.ts
 │     │  │     ├─ package.json
@@ -335,6 +355,11 @@ home-care-station
 │     │  │  │  │  ├─ page.js.nft.json
 │     │  │  │  │  └─ page_client-reference-manifest.js
 │     │  │  │  ├─ api
+│     │  │  │  │  ├─ ai-assistant
+│     │  │  │  │  │  └─ message
+│     │  │  │  │  │     ├─ route.js
+│     │  │  │  │  │     ├─ route.js.nft.json
+│     │  │  │  │  │     └─ route_client-reference-manifest.js
 │     │  │  │  │  └─ webhook
 │     │  │  │  │     └─ intake
 │     │  │  │  │        ├─ route.js
@@ -345,6 +370,10 @@ home-care-station
 │     │  │  │  │  ├─ page.js.nft.json
 │     │  │  │  │  └─ page_client-reference-manifest.js
 │     │  │  │  ├─ caregiver
+│     │  │  │  │  ├─ alerts
+│     │  │  │  │  │  ├─ page.js
+│     │  │  │  │  │  ├─ page.js.nft.json
+│     │  │  │  │  │  └─ page_client-reference-manifest.js
 │     │  │  │  │  ├─ page.js
 │     │  │  │  │  ├─ page.js.nft.json
 │     │  │  │  │  ├─ page_client-reference-manifest.js
@@ -353,6 +382,23 @@ home-care-station
 │     │  │  │  │     ├─ page.js.nft.json
 │     │  │  │  │     └─ page_client-reference-manifest.js
 │     │  │  │  ├─ doctor
+│     │  │  │  │  ├─ aibot
+│     │  │  │  │  │  ├─ page.js
+│     │  │  │  │  │  ├─ page.js.nft.json
+│     │  │  │  │  │  └─ page_client-reference-manifest.js
+│     │  │  │  │  ├─ aibot.html
+│     │  │  │  │  ├─ aibot.meta
+│     │  │  │  │  ├─ aibot.rsc
+│     │  │  │  │  ├─ aibot.segments
+│     │  │  │  │  │  ├─ doctor
+│     │  │  │  │  │  │  ├─ aibot
+│     │  │  │  │  │  │  │  └─ __PAGE__.segment.rsc
+│     │  │  │  │  │  │  └─ aibot.segment.rsc
+│     │  │  │  │  │  ├─ doctor.segment.rsc
+│     │  │  │  │  │  ├─ _full.segment.rsc
+│     │  │  │  │  │  ├─ _head.segment.rsc
+│     │  │  │  │  │  ├─ _index.segment.rsc
+│     │  │  │  │  │  └─ _tree.segment.rsc
 │     │  │  │  │  ├─ page.js
 │     │  │  │  │  ├─ page.js.nft.json
 │     │  │  │  │  ├─ page_client-reference-manifest.js
@@ -419,17 +465,6 @@ home-care-station
 │     │  │  │  │  ├─ page.js
 │     │  │  │  │  ├─ page.js.nft.json
 │     │  │  │  │  └─ page_client-reference-manifest.js
-│     │  │  │  ├─ station.html
-│     │  │  │  ├─ station.meta
-│     │  │  │  ├─ station.rsc
-│     │  │  │  ├─ station.segments
-│     │  │  │  │  ├─ station
-│     │  │  │  │  │  └─ __PAGE__.segment.rsc
-│     │  │  │  │  ├─ station.segment.rsc
-│     │  │  │  │  ├─ _full.segment.rsc
-│     │  │  │  │  ├─ _head.segment.rsc
-│     │  │  │  │  ├─ _index.segment.rsc
-│     │  │  │  │  └─ _tree.segment.rsc
 │     │  │  │  ├─ _global-error
 │     │  │  │  │  ├─ page.js
 │     │  │  │  │  ├─ page.js.nft.json
@@ -462,18 +497,22 @@ home-care-station
 │     │  │  │     └─ _tree.segment.rsc
 │     │  │  ├─ app-paths-manifest.json
 │     │  │  ├─ chunks
-│     │  │  │  ├─ 199.js
+│     │  │  │  ├─ 205.js
+│     │  │  │  ├─ 208.js
 │     │  │  │  ├─ 218.js
 │     │  │  │  ├─ 25.js
 │     │  │  │  ├─ 319.js
-│     │  │  │  ├─ 359.js
+│     │  │  │  ├─ 428.js
 │     │  │  │  ├─ 445.js
-│     │  │  │  ├─ 593.js
-│     │  │  │  ├─ 634.js
-│     │  │  │  ├─ 715.js
+│     │  │  │  ├─ 580.js
+│     │  │  │  ├─ 595.js
+│     │  │  │  ├─ 70.js
 │     │  │  │  ├─ 728.js
+│     │  │  │  ├─ 747.js
 │     │  │  │  ├─ 813.js
-│     │  │  │  └─ 892.js
+│     │  │  │  ├─ 823.js
+│     │  │  │  ├─ 94.js
+│     │  │  │  └─ 95.js
 │     │  │  ├─ functions-config-manifest.json
 │     │  │  ├─ interception-route-rewrite-manifest.js
 │     │  │  ├─ middleware-build-manifest.js
@@ -493,46 +532,56 @@ home-care-station
 │     │  │  └─ webpack-runtime.js
 │     │  ├─ static
 │     │  │  ├─ chunks
+│     │  │  │  ├─ 421-82d1db9e49ef9e5f.js
+│     │  │  │  ├─ 44530001-8f75776a0063f094.js
 │     │  │  │  ├─ 4bd1b696-215e5051988c3dde.js
-│     │  │  │  ├─ 564-b56dfcde5608b111.js
+│     │  │  │  ├─ 564-63ea169881364bf4.js
 │     │  │  │  ├─ 597-34e73224a4cdb63f.js
+│     │  │  │  ├─ 775-a258471f29a26b2c.js
 │     │  │  │  ├─ 781-83def54c05235786.js
 │     │  │  │  ├─ 794-5fb6eff04a716ab6.js
 │     │  │  │  ├─ 899.1813981119fa1f8a.js
 │     │  │  │  ├─ 966.1775eb621d8d3e09.js
 │     │  │  │  ├─ app
 │     │  │  │  │  ├─ admin
-│     │  │  │  │  │  └─ page-fad4f2f083fcbf30.js
+│     │  │  │  │  │  └─ page-b5f8ee70d05e3f23.js
 │     │  │  │  │  ├─ alerts
 │     │  │  │  │  │  └─ page-4f935eadfb2d25a0.js
 │     │  │  │  │  ├─ api
+│     │  │  │  │  │  ├─ ai-assistant
+│     │  │  │  │  │  │  └─ message
+│     │  │  │  │  │  │     └─ route-a2ccb0d7238b6526.js
 │     │  │  │  │  │  └─ webhook
 │     │  │  │  │  │     └─ intake
-│     │  │  │  │  │        └─ route-e2e37efeb51407cd.js
+│     │  │  │  │  │        └─ route-a2ccb0d7238b6526.js
 │     │  │  │  │  ├─ assistant
 │     │  │  │  │  │  └─ page-4f935eadfb2d25a0.js
 │     │  │  │  │  ├─ caregiver
-│     │  │  │  │  │  ├─ page-624c81d74f9efa21.js
+│     │  │  │  │  │  ├─ alerts
+│     │  │  │  │  │  │  └─ page-b5f8ee70d05e3f23.js
+│     │  │  │  │  │  ├─ page-3005ae30a59c00b2.js
 │     │  │  │  │  │  └─ prescriptions
-│     │  │  │  │  │     └─ page-fad4f2f083fcbf30.js
+│     │  │  │  │  │     └─ page-b5f8ee70d05e3f23.js
 │     │  │  │  │  ├─ doctor
-│     │  │  │  │  │  ├─ page-579e306267f2ffe6.js
+│     │  │  │  │  │  ├─ aibot
+│     │  │  │  │  │  │  └─ page-67cdfaa7a8384e77.js
+│     │  │  │  │  │  ├─ page-f9efd850d7394a6f.js
 │     │  │  │  │  │  └─ prescriptions
-│     │  │  │  │  │     └─ page-c86858688368e8f0.js
+│     │  │  │  │  │     └─ page-121c6b4c34ad51f8.js
 │     │  │  │  │  ├─ layout-6ec07ed94cda3059.js
 │     │  │  │  │  ├─ login
-│     │  │  │  │  │  └─ page-201afb08992da651.js
+│     │  │  │  │  │  └─ page-9dae684041608f6d.js
 │     │  │  │  │  ├─ logout
-│     │  │  │  │  │  └─ route-e2e37efeb51407cd.js
-│     │  │  │  │  ├─ page-e2e37efeb51407cd.js
+│     │  │  │  │  │  └─ route-a2ccb0d7238b6526.js
+│     │  │  │  │  ├─ page-a2ccb0d7238b6526.js
 │     │  │  │  │  ├─ register
-│     │  │  │  │  │  └─ page-d509c52d69323102.js
+│     │  │  │  │  │  └─ page-38431559d4542aeb.js
 │     │  │  │  │  ├─ settings
 │     │  │  │  │  │  └─ page-4f935eadfb2d25a0.js
 │     │  │  │  │  ├─ station
 │     │  │  │  │  │  └─ page-59fc4cd547a3d4f4.js
 │     │  │  │  │  ├─ _global-error
-│     │  │  │  │  │  └─ page-e2e37efeb51407cd.js
+│     │  │  │  │  │  └─ page-a2ccb0d7238b6526.js
 │     │  │  │  │  └─ _not-found
 │     │  │  │  │     └─ page-33e7b35b5073873d.js
 │     │  │  │  ├─ framework-93cda6578f6c76ec.js
@@ -543,69 +592,76 @@ home-care-station
 │     │  │  │  │     └─ client
 │     │  │  │  │        └─ components
 │     │  │  │  │           └─ builtin
-│     │  │  │  │              ├─ app-error-e2e37efeb51407cd.js
-│     │  │  │  │              ├─ forbidden-e2e37efeb51407cd.js
+│     │  │  │  │              ├─ app-error-a2ccb0d7238b6526.js
+│     │  │  │  │              ├─ forbidden-a2ccb0d7238b6526.js
 │     │  │  │  │              ├─ global-error-9c8f642e4647e920.js
-│     │  │  │  │              ├─ not-found-e2e37efeb51407cd.js
-│     │  │  │  │              └─ unauthorized-e2e37efeb51407cd.js
+│     │  │  │  │              ├─ not-found-a2ccb0d7238b6526.js
+│     │  │  │  │              └─ unauthorized-a2ccb0d7238b6526.js
 │     │  │  │  ├─ polyfills-42372ed130431b0a.js
 │     │  │  │  └─ webpack-9e21504c612c425d.js
 │     │  │  ├─ css
 │     │  │  │  ├─ 0e8bedaa157c5a48.css
-│     │  │  │  └─ 1d33ce5d8d4af687.css
-│     │  │  ├─ media
-│     │  │  │  ├─ 19cfc7226ec3afaa-s.woff2
-│     │  │  │  ├─ 21350d82a1f187e9-s.woff2
-│     │  │  │  ├─ 8e9860b6e62d6359-s.woff2
-│     │  │  │  ├─ ba9851c3c22cd980-s.woff2
-│     │  │  │  ├─ c5fe6dc8356a8c31-s.woff2
-│     │  │  │  ├─ df0a9ae256c0569c-s.p.woff2
-│     │  │  │  └─ e4af272ccee01ff0-s.p.woff2
-│     │  │  └─ P7RCIVnp39sNggX7p4Yya
-│     │  │     ├─ _buildManifest.js
-│     │  │     └─ _ssgManifest.js
+│     │  │  │  └─ 534d493908733432.css
+│     │  │  ├─ fvUGnAleJMeoi0L378hZb
+│     │  │  │  ├─ _buildManifest.js
+│     │  │  │  └─ _ssgManifest.js
+│     │  │  └─ media
+│     │  │     ├─ 19cfc7226ec3afaa-s.woff2
+│     │  │     ├─ 21350d82a1f187e9-s.woff2
+│     │  │     ├─ 8e9860b6e62d6359-s.woff2
+│     │  │     ├─ ba9851c3c22cd980-s.woff2
+│     │  │     ├─ c5fe6dc8356a8c31-s.woff2
+│     │  │     ├─ df0a9ae256c0569c-s.p.woff2
+│     │  │     └─ e4af272ccee01ff0-s.p.woff2
 │     │  ├─ trace
 │     │  ├─ trace-build
-│     │  ├─ types
-│     │  │  ├─ app
-│     │  │  │  ├─ admin
-│     │  │  │  │  └─ page.ts
-│     │  │  │  ├─ alerts
-│     │  │  │  │  └─ page.ts
-│     │  │  │  ├─ api
-│     │  │  │  │  └─ webhook
-│     │  │  │  │     └─ intake
-│     │  │  │  │        └─ route.ts
-│     │  │  │  ├─ assistant
-│     │  │  │  │  └─ page.ts
-│     │  │  │  ├─ caregiver
-│     │  │  │  │  ├─ page.ts
-│     │  │  │  │  └─ prescriptions
-│     │  │  │  │     └─ page.ts
-│     │  │  │  ├─ doctor
-│     │  │  │  │  ├─ page.ts
-│     │  │  │  │  └─ prescriptions
-│     │  │  │  │     └─ page.ts
-│     │  │  │  ├─ layout.ts
-│     │  │  │  ├─ login
-│     │  │  │  │  └─ page.ts
-│     │  │  │  ├─ logout
-│     │  │  │  │  └─ route.ts
-│     │  │  │  ├─ page.ts
-│     │  │  │  ├─ register
-│     │  │  │  │  └─ page.ts
-│     │  │  │  ├─ settings
-│     │  │  │  │  └─ page.ts
-│     │  │  │  └─ station
-│     │  │  │     └─ page.ts
-│     │  │  ├─ cache-life.d.ts
-│     │  │  ├─ package.json
-│     │  │  ├─ routes.d.ts
-│     │  │  └─ validator.ts
-│     │  └─ _events_4172.json
+│     │  └─ types
+│     │     ├─ app
+│     │     │  ├─ admin
+│     │     │  │  └─ page.ts
+│     │     │  ├─ alerts
+│     │     │  │  └─ page.ts
+│     │     │  ├─ api
+│     │     │  │  ├─ ai-assistant
+│     │     │  │  │  └─ message
+│     │     │  │  │     └─ route.ts
+│     │     │  │  └─ webhook
+│     │     │  │     └─ intake
+│     │     │  │        └─ route.ts
+│     │     │  ├─ assistant
+│     │     │  │  └─ page.ts
+│     │     │  ├─ caregiver
+│     │     │  │  ├─ alerts
+│     │     │  │  │  └─ page.ts
+│     │     │  │  ├─ page.ts
+│     │     │  │  └─ prescriptions
+│     │     │  │     └─ page.ts
+│     │     │  ├─ doctor
+│     │     │  │  ├─ aibot
+│     │     │  │  │  └─ page.ts
+│     │     │  │  ├─ page.ts
+│     │     │  │  └─ prescriptions
+│     │     │  │     └─ page.ts
+│     │     │  ├─ layout.ts
+│     │     │  ├─ login
+│     │     │  │  └─ page.ts
+│     │     │  ├─ logout
+│     │     │  │  └─ route.ts
+│     │     │  ├─ page.ts
+│     │     │  ├─ register
+│     │     │  │  └─ page.ts
+│     │     │  ├─ settings
+│     │     │  │  └─ page.ts
+│     │     │  └─ station
+│     │     │     └─ page.ts
+│     │     ├─ cache-life.d.ts
+│     │     ├─ package.json
+│     │     ├─ routes.d.ts
+│     │     └─ validator.ts
 │     ├─ AGENTS.md
 │     ├─ app
 │     │  ├─ actions
+│     │  │  ├─ ai.ts
 │     │  │  ├─ alerts.ts
 │     │  │  ├─ elderly.ts
 │     │  │  ├─ prescriptions.ts
@@ -627,6 +683,8 @@ home-care-station
 │     │  ├─ auth
 │     │  │  └─ actions.ts
 │     │  ├─ caregiver
+│     │  │  ├─ aicare
+│     │  │  │  └─ page.tsx
 │     │  │  ├─ alerts
 │     │  │  │  └─ page.tsx
 │     │  │  ├─ page.tsx
@@ -655,8 +713,6 @@ home-care-station
 │     │     └─ page.tsx
 │     ├─ CLAUDE.md
 │     ├─ components
-│     │  ├─ ai
-│     │  │  └─ ai-chat-panel.tsx
 │     │  ├─ alerts
 │     │  │  └─ realtime-alert-listener.tsx
 │     │  ├─ assistant
