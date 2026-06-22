@@ -11,7 +11,7 @@ import { RealtimeAlertListener } from "@/components/alerts/realtime-alert-listen
 const sidebarItems = [ 
   { href: "/caregiver", label: "Trang chính", icon: Home, active: true }, 
   { href: "/caregiver/prescriptions", label: "Lịch thuốc", icon: Pill }, 
-  { href: "/caregiver", label: "AI Care", icon: Bot }, 
+  { href: "/caregiver/aicare", label: "AI Care", icon: Bot }, 
 ];
 
 function SidebarItem({ href, label, icon: Icon, active = false }: { href: string; label: string; icon: LucideIcon; active?: boolean; }) {
