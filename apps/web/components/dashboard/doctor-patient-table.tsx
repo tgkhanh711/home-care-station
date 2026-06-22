@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { usePatientStore } from "@/lib/store/use-patient-store";
 
 export type DoctorPatientRow = {
   id: string;
@@ -32,6 +33,9 @@ const ALERT_CLASS: Record<DoctorPatientRow["alert"], string> = {
 
 export function DoctorPatientTable({ rows }: DoctorPatientTableProps) {
   const [query, setQuery] = useState("");
+  // Lấy hàm và state từ Global Store
+  const selectedElderlyId = usePatientStore((state) => state.selectedElderlyId);
+  const setSelectedElderlyId = usePatientStore((state) => state.setSelectedElderlyId);
 
   const filteredRows = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -49,9 +53,7 @@ export function DoctorPatientTable({ rows }: DoctorPatientTableProps) {
         row.bp,
         row.spo2,
         ALERT_LABEL[row.alert],
-      ]
-        .join(" ")
-        .toLowerCase();
+      ].join(" ").toLowerCase();
 
       return haystack.includes(normalizedQuery);
     });
@@ -63,7 +65,7 @@ export function DoctorPatientTable({ rows }: DoctorPatientTableProps) {
         <div>
           <h2 className="text-lg font-black text-white">Bảng bệnh nhân</h2>
           <p className="mt-1 text-sm text-slate-400">
-            Lọc nhanh theo tên, bệnh nền, chỉ số hoặc mức cảnh báo.
+            Click vào một bệnh nhân để AI tự động hiểu ngữ cảnh.
           </p>
         </div>
 
@@ -90,26 +92,37 @@ export function DoctorPatientTable({ rows }: DoctorPatientTableProps) {
           </thead>
 
           <tbody>
-            {filteredRows.map((row) => (
-              <tr key={row.id} className="rounded-2xl bg-slate-950 text-slate-200">
-                <td className="rounded-l-2xl px-3 py-4">
-                  <p className="font-bold text-white">{row.name}</p>
-                  <p className="text-xs text-slate-500">{row.age} tuổi</p>
-                </td>
-                <td className="px-3 py-4">{row.condition}</td>
-                <td className="px-3 py-4 font-bold">{row.hr}</td>
-                <td className="px-3 py-4 font-bold">{row.bp}</td>
-                <td className="px-3 py-4 font-bold">{row.spo2}</td>
-                <td className="px-3 py-4">
-                  <span className={`rounded-full px-3 py-1 text-xs font-bold ${ALERT_CLASS[row.alert]}`}>
-                    {ALERT_LABEL[row.alert]}
-                  </span>
-                </td>
-                <td className="rounded-r-2xl px-3 py-4 text-slate-400">
-                  {row.lastSeen}
-                </td>
-              </tr>
-            ))}
+            {filteredRows.map((row) => {
+              const isSelected = selectedElderlyId === row.id;
+              return (
+                <tr 
+                  key={row.id} 
+                  onClick={() => setSelectedElderlyId(row.id)}
+                  className={`rounded-2xl cursor-pointer transition-all ${
+                    isSelected 
+                      ? "bg-blue-900/40 text-blue-100 ring-1 ring-blue-500/50 scale-[1.01]" 
+                      : "bg-slate-950 text-slate-200 hover:bg-slate-800"
+                  }`}
+                >
+                  <td className="rounded-l-2xl px-3 py-4">
+                    <p className={`font-bold ${isSelected ? "text-blue-300" : "text-white"}`}>{row.name}</p>
+                    <p className="text-xs text-slate-500">{row.age} tuổi</p>
+                  </td>
+                  <td className="px-3 py-4">{row.condition}</td>
+                  <td className="px-3 py-4 font-bold">{row.hr}</td>
+                  <td className="px-3 py-4 font-bold">{row.bp}</td>
+                  <td className="px-3 py-4 font-bold">{row.spo2}</td>
+                  <td className="px-3 py-4">
+                    <span className={`rounded-full px-3 py-1 text-xs font-bold ${ALERT_CLASS[row.alert]}`}>
+                      {ALERT_LABEL[row.alert]}
+                    </span>
+                  </td>
+                  <td className="rounded-r-2xl px-3 py-4 text-slate-400">
+                    {row.lastSeen}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

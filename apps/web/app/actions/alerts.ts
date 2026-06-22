@@ -9,7 +9,7 @@ export async function triggerSOS(elderlyProfileId: string) {
   
   const { error } = await supabaseAdmin.from("alerts").insert({
     elderly_profile_id: elderlyProfileId,
-    type: "sos",
+    alert_type: "sos",
     severity: "emergency",
     title: "CẢNH BÁO KHẨN CẤP (SOS)",
     message: "Người bệnh đã nhấn nút GỌI NGƯỜI NHÀ từ Trạm thiết bị. Cần hỗ trợ ngay lập tức!",

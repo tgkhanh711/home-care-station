@@ -1,6 +1,5 @@
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import { AppTopHeader } from "@/components/layout/app-top-header";
-import { AiChatPanel } from "@/components/ai/ai-chat-panel";
 import type { AppRole } from "@/lib/constants";
 
 type DashboardShellProps = {
@@ -26,7 +25,6 @@ export function DashboardShell({
         </main>
       </div>
 
-      <AiChatPanel role={role} />
     </div>
   );
 }

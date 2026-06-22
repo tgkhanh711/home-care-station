@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import Link from "next/link";
-import { Bell, Bot, Home, Pill, Search, Settings, ShieldAlert, ArrowLeft } from "lucide-react";
+import { Bot, Home, Pill, Search, Settings, ShieldAlert, ArrowLeft } from "lucide-react";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { getElderlyProfiles } from "@/app/actions/elderly";
 import { getActiveAlerts, updateAlertStatus } from "@/app/actions/alerts"; 
@@ -8,7 +8,6 @@ import { getActiveAlerts, updateAlertStatus } from "@/app/actions/alerts";
 const sidebarItems = [ 
   { href: "/caregiver", label: "Trang chính", icon: Home }, 
   { href: "/caregiver/prescriptions", label: "Lịch thuốc", icon: Pill }, 
-  { href: "/caregiver/alerts", label: "Cảnh báo", icon: Bell, active: true }, 
   { href: "/caregiver", label: "AI Care", icon: Bot }, 
 ];
 
@@ -74,7 +73,7 @@ export default async function CaregiverAlertsPage() {
                       </div>
                     </div>
 
-                    {/* FORM XỬ LÝ CẢNH BÁO ĐẶT Ở ĐÂY */}
+                    {/* FORM XỬ LÝ CẢNH BÁO */}
                     <form action={async () => {
                       "use server";
                       await updateAlertStatus(alert.id, alert.status === "pending" ? "acknowledged" : "resolved");

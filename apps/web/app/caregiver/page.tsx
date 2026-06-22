@@ -6,12 +6,11 @@ import { getElderlyProfiles } from "@/app/actions/elderly";
 import { getTodaySchedules } from "@/app/actions/schedules"; 
 import { getActiveAlerts } from "@/app/actions/alerts"; 
 import { getLatestVitals } from "@/app/actions/vitals";
-import { AiChatPanel } from "@/components/ai/ai-chat-panel";
+import { RealtimeAlertListener } from "@/components/alerts/realtime-alert-listener";
 
 const sidebarItems = [ 
   { href: "/caregiver", label: "Trang chính", icon: Home, active: true }, 
   { href: "/caregiver/prescriptions", label: "Lịch thuốc", icon: Pill }, 
-  { href: "/caregiver/alerts", label: "Cảnh báo", icon: Bell }, 
   { href: "/caregiver", label: "AI Care", icon: Bot }, 
 ];
 
@@ -180,8 +179,7 @@ export default async function CaregiverDashboardPage() {
         
         {/* ĐÃ XÓA THẺ ASIDE (SIDEBAR PHẢI) CŨ Ở ĐÂY */}
       </div>
-
-      <AiChatPanel role="caregiver" />
+      {profile && <RealtimeAlertListener elderlyProfileId={profile.id} />}
     </div>
   );
 }

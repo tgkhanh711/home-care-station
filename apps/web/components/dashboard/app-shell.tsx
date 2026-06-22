@@ -108,13 +108,6 @@ const NAV_ITEMS: Record<DesktopRole, NavItem[]> = {
     },
     {
       href: "/doctor",
-      label: "Cảnh báo",
-      description: "Đỏ và cam",
-      icon: "!",
-      badge: "ALERT",
-    },
-    {
-      href: "/doctor",
       label: "Adherence",
       description: "Tuân thủ thuốc",
       icon: "✓",
@@ -132,13 +125,6 @@ const NAV_ITEMS: Record<DesktopRole, NavItem[]> = {
       label: "Lịch thuốc",
       description: "Hôm nay",
       icon: "◷",
-    },
-    {
-      href: "/caregiver",
-      label: "Cảnh báo",
-      description: "Cần xử lý",
-      icon: "!",
-      badge: "SOS",
     },
     {
       href: "/caregiver",

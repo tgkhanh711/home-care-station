@@ -15,7 +15,6 @@ import { doctorSidebarItems } from "@/lib/constants/doctor-sidebar";
 import { getLatestVitals, getVitalsHistory } from "@/app/actions/vitals"; 
 import { VitalsForm } from "@/components/doctor/vitals-form"; 
 import { getActiveAlerts, updateAlertStatus } from "@/app/actions/alerts";
-import { AiChatPanel } from "@/components/ai/ai-chat-panel";
 
 // Types
 type PatientCard = { id: string; name: string; note: string; active?: boolean; tone: "blue" | "emerald" | "orange" | "slate"; };
@@ -256,7 +255,7 @@ export default async function DoctorDashboardPage(props: { searchParams?: Promis
 
           <section className="mt-4 rounded-[28px] border border-slate-200 bg-white p-4 shadow-sm transition-colors duration-300 dark:border-white/8 dark:bg-white/4.5 dark:shadow-2xl dark:shadow-black/20">
             <div className="mb-3 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-              <div><h2 className="text-base font-black text-slate-900 dark:text-white">Danh sách chi tiết</h2><p className="mt-1 text-xs text-slate-500">Thông tin chi tiết của bệnh nhân đang chọn.</p></div>
+              <div><h2 className="text-base font-black text-slate-900 dark:text-white">Chi tiết</h2><p className="mt-1 text-xs text-slate-500">Thông tin chi tiết của bệnh nhân đang chọn.</p></div>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full min-w-200 border-separate border-spacing-y-2 text-left text-sm">
@@ -281,7 +280,6 @@ export default async function DoctorDashboardPage(props: { searchParams?: Promis
         {/* ĐÃ XÓA THẺ ASIDE (SIDEBAR PHẢI) CŨ */}
       </div>
 
-      <AiChatPanel role="doctor" />
     </div>
   );
 }

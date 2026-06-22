@@ -1,8 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Activity,
+  Bot,
   ClipboardList,
-  ShieldAlert,
   UsersRound,
 } from "lucide-react";
 
@@ -17,6 +16,5 @@ export type SidebarItem = {
 export const doctorSidebarItems: SidebarItem[] = [
   { href: "/doctor", label: "Bệnh nhân", description: "Danh sách đang theo dõi", icon: UsersRound },
   { href: "/doctor/prescriptions", label: "Đơn thuốc", description: "Quản lý y lệnh", icon: ClipboardList },
-  { href: "/doctor/vitals", label: "Chỉ số sống", description: "HR, BP, SpO2", icon: Activity, badge: "24H" },
-  { href: "/doctor/alerts", label: "Cảnh báo", description: "Đỏ / cam cần xử lý", icon: ShieldAlert, badge: "3" },
+  { href: "/doctor/aibot", label: "Trợ lý AI", description: "HR, BP, SpO2", icon: Bot },
 ];

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Database } from "@/database";
 import {
-  Bell,
   Bot,
   FileText,
   Home,
@@ -31,7 +30,6 @@ type PrescriptionWithItems = {
 const sidebarItems = [
   { href: "/caregiver", label: "Trang chính", icon: Home },
   { href: "/caregiver/prescriptions", label: "Lịch thuốc & Y lệnh", icon: Pill, active: true },
-  { href: "/caregiver", label: "Cảnh báo", icon: Bell },
   { href: "/caregiver", label: "AI Care", icon: Bot },
 ];
 

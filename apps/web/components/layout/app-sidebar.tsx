@@ -1,7 +1,5 @@
 import Link from "next/link";
 import {
-  Activity,
-  AlertTriangle,
   Bot,
   CalendarClock,
   ClipboardList,
@@ -50,11 +48,11 @@ const navigationItems: NavigationItem[] = [
     roles: ["doctor"]
   },
   {
-    href: "/doctor/vitals",
-    label: "Chỉ số sống",
-    icon: Activity,
+    href: "/doctor/aibot",
+    label: "Trợ lý AI",
+    icon: Bot,
     roles: ["doctor"],
-    badge: "24H"
+    badge: "AI"
   },
   {
     href: "/caregiver",
@@ -73,13 +71,6 @@ const navigationItems: NavigationItem[] = [
     label: "Lịch chăm sóc",
     icon: CalendarClock,
     roles: ["caregiver"]
-  },
-  {
-    href: "/alerts",
-    label: "Cảnh báo",
-    icon: AlertTriangle,
-    roles: ["admin", "doctor", "caregiver"],
-    badge: "ALERT"
   },
   {
     href: "/assistant",
