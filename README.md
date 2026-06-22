@@ -88,6 +88,7 @@ home-care-station
 │     │  │  │     │  ├─ 25.pack.gz
 │     │  │  │     │  ├─ 26.pack.gz
 │     │  │  │     │  ├─ 27.pack.gz
+│     │  │  │     │  ├─ 28.pack.gz
 │     │  │  │     │  ├─ 3.pack.gz
 │     │  │  │     │  ├─ 4.pack.gz
 │     │  │  │     │  ├─ 5.pack.gz
@@ -135,7 +136,10 @@ home-care-station
 │     │  │  │        ├─ 35.pack.gz
 │     │  │  │        ├─ 36.pack.gz
 │     │  │  │        ├─ 37.pack.gz
+│     │  │  │        ├─ 38.pack.gz
+│     │  │  │        ├─ 39.pack.gz
 │     │  │  │        ├─ 4.pack.gz
+│     │  │  │        ├─ 40.pack.gz
 │     │  │  │        ├─ 5.pack.gz
 │     │  │  │        ├─ 6.pack.gz
 │     │  │  │        ├─ 7.pack.gz
@@ -152,23 +156,17 @@ home-care-station
 │     │  │  ├─ routes-manifest.json
 │     │  │  ├─ server
 │     │  │  │  ├─ app
-│     │  │  │  │  ├─ api
-│     │  │  │  │  │  └─ ai-assistant
-│     │  │  │  │  │     └─ message
-│     │  │  │  │  │        ├─ route.js
-│     │  │  │  │  │        └─ route_client-reference-manifest.js
-│     │  │  │  │  ├─ caregiver
-│     │  │  │  │  │  ├─ page.js
-│     │  │  │  │  │  └─ page_client-reference-manifest.js
 │     │  │  │  │  ├─ doctor
+│     │  │  │  │  │  ├─ aibot
+│     │  │  │  │  │  │  ├─ page.js
+│     │  │  │  │  │  │  └─ page_client-reference-manifest.js
 │     │  │  │  │  │  ├─ page.js
 │     │  │  │  │  │  └─ page_client-reference-manifest.js
-│     │  │  │  │  ├─ login
-│     │  │  │  │  │  ├─ page.js
-│     │  │  │  │  │  └─ page_client-reference-manifest.js
-│     │  │  │  │  └─ logout
-│     │  │  │  │     ├─ route.js
-│     │  │  │  │     └─ route_client-reference-manifest.js
+│     │  │  │  │  ├─ page.js
+│     │  │  │  │  ├─ page_client-reference-manifest.js
+│     │  │  │  │  └─ _not-found
+│     │  │  │  │     ├─ page.js
+│     │  │  │  │     └─ page_client-reference-manifest.js
 │     │  │  │  ├─ app-paths-manifest.json
 │     │  │  │  ├─ interception-route-rewrite-manifest.js
 │     │  │  │  ├─ middleware-build-manifest.js
@@ -177,6 +175,10 @@ home-care-station
 │     │  │  │  ├─ middleware.js
 │     │  │  │  ├─ next-font-manifest.js
 │     │  │  │  ├─ next-font-manifest.json
+│     │  │  │  ├─ pages
+│     │  │  │  │  ├─ _app.js
+│     │  │  │  │  ├─ _document.js
+│     │  │  │  │  └─ _error.js
 │     │  │  │  ├─ pages-manifest.json
 │     │  │  │  ├─ server-reference-manifest.js
 │     │  │  │  ├─ server-reference-manifest.json
@@ -192,28 +194,31 @@ home-care-station
 │     │  │  │  │  ├─ next.js
 │     │  │  │  │  ├─ tailwind-merge.js
 │     │  │  │  │  ├─ tslib.js
-│     │  │  │  │  └─ zod.js
-│     │  │  │  └─ webpack-runtime.js
+│     │  │  │  │  └─ zustand.js
+│     │  │  │  ├─ webpack-runtime.js
+│     │  │  │  ├─ _error.js
+│     │  │  │  └─ _rsc_lib_supabase_admin_ts.js
 │     │  │  ├─ static
 │     │  │  │  ├─ chunks
 │     │  │  │  │  ├─ app
-│     │  │  │  │  │  ├─ api
-│     │  │  │  │  │  │  └─ ai-assistant
-│     │  │  │  │  │  │     └─ message
-│     │  │  │  │  │  │        └─ route.js
-│     │  │  │  │  │  ├─ caregiver
-│     │  │  │  │  │  │  └─ page.js
 │     │  │  │  │  │  ├─ doctor
+│     │  │  │  │  │  │  ├─ aibot
+│     │  │  │  │  │  │  │  └─ page.js
 │     │  │  │  │  │  │  └─ page.js
 │     │  │  │  │  │  ├─ layout.js
-│     │  │  │  │  │  ├─ login
-│     │  │  │  │  │  │  └─ page.js
-│     │  │  │  │  │  └─ logout
-│     │  │  │  │  │     └─ route.js
+│     │  │  │  │  │  ├─ page.js
+│     │  │  │  │  │  └─ _not-found
+│     │  │  │  │  │     └─ page.js
 │     │  │  │  │  ├─ app-pages-internals.js
 │     │  │  │  │  ├─ main-app.js
+│     │  │  │  │  ├─ main.js
+│     │  │  │  │  ├─ pages
+│     │  │  │  │  │  ├─ _app.js
+│     │  │  │  │  │  └─ _error.js
 │     │  │  │  │  ├─ polyfills.js
-│     │  │  │  │  └─ webpack.js
+│     │  │  │  │  ├─ react-refresh.js
+│     │  │  │  │  ├─ webpack.js
+│     │  │  │  │  └─ _error.js
 │     │  │  │  ├─ css
 │     │  │  │  │  └─ app
 │     │  │  │  │     └─ layout.css
@@ -229,131 +234,68 @@ home-care-station
 │     │  │  │  │  ├─ df0a9ae256c0569c-s.p.woff2
 │     │  │  │  │  └─ e4af272ccee01ff0-s.p.woff2
 │     │  │  │  └─ webpack
-│     │  │  │     ├─ 097963f3bd58962f.webpack.hot-update.json
-│     │  │  │     ├─ 0ef9a2fb579b29d7.webpack.hot-update.json
-│     │  │  │     ├─ 0f6e219f9344f4dd.webpack.hot-update.json
-│     │  │  │     ├─ 10329f4b0997e0f3.webpack.hot-update.json
-│     │  │  │     ├─ 1fa9b68ea941c2a9.webpack.hot-update.json
-│     │  │  │     ├─ 38a95d3e521dff44.webpack.hot-update.json
-│     │  │  │     ├─ 4a3e3644bb491b7c.webpack.hot-update.json
-│     │  │  │     ├─ 54dbb85854b2adb6.webpack.hot-update.json
-│     │  │  │     ├─ 555a93b3f94c1476.webpack.hot-update.json
-│     │  │  │     ├─ 58f17eb112fef788.webpack.hot-update.json
+│     │  │  │     ├─ 10c182132a5e8aa7.webpack.hot-update.json
+│     │  │  │     ├─ 13ee33f2c949bbe3.webpack.hot-update.json
+│     │  │  │     ├─ 37cb5b39b47680cd.webpack.hot-update.json
+│     │  │  │     ├─ 382be9c17eb01475.webpack.hot-update.json
+│     │  │  │     ├─ 38409ca6496870c8.webpack.hot-update.json
+│     │  │  │     ├─ 3a113febba780f8f.webpack.hot-update.json
+│     │  │  │     ├─ 3e979989dfce0cf7.webpack.hot-update.json
+│     │  │  │     ├─ 548c7a01cc31fc21.webpack.hot-update.json
+│     │  │  │     ├─ 5a1647cd23ef5456.webpack.hot-update.json
 │     │  │  │     ├─ 633457081244afec._.hot-update.json
-│     │  │  │     ├─ 7698468573828df3.webpack.hot-update.json
-│     │  │  │     ├─ 7db868e547f64e87.webpack.hot-update.json
-│     │  │  │     ├─ 81535c7fd8e5ae70.webpack.hot-update.json
-│     │  │  │     ├─ 816271d59198802e.webpack.hot-update.json
-│     │  │  │     ├─ 8643defd06072aa2.webpack.hot-update.json
-│     │  │  │     ├─ 874c367e783acfc1.webpack.hot-update.json
-│     │  │  │     ├─ 8fbf0ce3f4edccfa.webpack.hot-update.json
-│     │  │  │     ├─ 8fc0ef9758c0b114.webpack.hot-update.json
-│     │  │  │     ├─ 90a0aba7cbe81b75.webpack.hot-update.json
-│     │  │  │     ├─ 9d448b7bf6f567e4.webpack.hot-update.json
-│     │  │  │     ├─ 9dec826812e616aa.webpack.hot-update.json
-│     │  │  │     ├─ a1671f99c9bba275.webpack.hot-update.json
-│     │  │  │     ├─ a459c048085ce4f6.webpack.hot-update.json
-│     │  │  │     ├─ ad5ca603f381ada3.webpack.hot-update.json
+│     │  │  │     ├─ 68ae4104398453c0.webpack.hot-update.json
+│     │  │  │     ├─ 72811c2dccdebf6b.webpack.hot-update.json
+│     │  │  │     ├─ 9d05625d756e8d68.webpack.hot-update.json
+│     │  │  │     ├─ ad1963926e7e79ba.webpack.hot-update.json
+│     │  │  │     ├─ afb5c8a2e0ce9f30.webpack.hot-update.json
 │     │  │  │     ├─ app
-│     │  │  │     │  ├─ caregiver
-│     │  │  │     │  │  ├─ page.1fa9b68ea941c2a9.hot-update.js
-│     │  │  │     │  │  ├─ page.90a0aba7cbe81b75.hot-update.js
-│     │  │  │     │  │  ├─ page.b133e4a256b9be6d.hot-update.js
-│     │  │  │     │  │  ├─ page.b4aeb99370bfc067.hot-update.js
-│     │  │  │     │  │  └─ page.e038e2fc90ad1e0b.hot-update.js
 │     │  │  │     │  ├─ doctor
-│     │  │  │     │  │  ├─ page.097963f3bd58962f.hot-update.js
-│     │  │  │     │  │  ├─ page.1fa9b68ea941c2a9.hot-update.js
-│     │  │  │     │  │  ├─ page.90a0aba7cbe81b75.hot-update.js
-│     │  │  │     │  │  ├─ page.b133e4a256b9be6d.hot-update.js
-│     │  │  │     │  │  ├─ page.b4aeb99370bfc067.hot-update.js
-│     │  │  │     │  │  └─ page.e038e2fc90ad1e0b.hot-update.js
-│     │  │  │     │  ├─ layout.0ef9a2fb579b29d7.hot-update.js
-│     │  │  │     │  ├─ layout.0f6e219f9344f4dd.hot-update.js
-│     │  │  │     │  ├─ layout.10329f4b0997e0f3.hot-update.js
-│     │  │  │     │  ├─ layout.1fa9b68ea941c2a9.hot-update.js
-│     │  │  │     │  ├─ layout.38a95d3e521dff44.hot-update.js
-│     │  │  │     │  ├─ layout.4a3e3644bb491b7c.hot-update.js
-│     │  │  │     │  ├─ layout.555a93b3f94c1476.hot-update.js
-│     │  │  │     │  ├─ layout.7698468573828df3.hot-update.js
-│     │  │  │     │  ├─ layout.7db868e547f64e87.hot-update.js
-│     │  │  │     │  ├─ layout.81535c7fd8e5ae70.hot-update.js
-│     │  │  │     │  ├─ layout.816271d59198802e.hot-update.js
-│     │  │  │     │  ├─ layout.8643defd06072aa2.hot-update.js
-│     │  │  │     │  ├─ layout.874c367e783acfc1.hot-update.js
-│     │  │  │     │  ├─ layout.8fbf0ce3f4edccfa.hot-update.js
-│     │  │  │     │  ├─ layout.8fc0ef9758c0b114.hot-update.js
-│     │  │  │     │  ├─ layout.90a0aba7cbe81b75.hot-update.js
-│     │  │  │     │  ├─ layout.9dec826812e616aa.hot-update.js
-│     │  │  │     │  ├─ layout.a1671f99c9bba275.hot-update.js
-│     │  │  │     │  ├─ layout.a459c048085ce4f6.hot-update.js
-│     │  │  │     │  ├─ layout.ad5ca603f381ada3.hot-update.js
-│     │  │  │     │  ├─ layout.b133e4a256b9be6d.hot-update.js
-│     │  │  │     │  ├─ layout.b1b316807294cd60.hot-update.js
-│     │  │  │     │  ├─ layout.b4aeb99370bfc067.hot-update.js
-│     │  │  │     │  ├─ layout.b6ab8a1a37070170.hot-update.js
-│     │  │  │     │  ├─ layout.b9c1a9754717e3bf.hot-update.js
-│     │  │  │     │  ├─ layout.e038e2fc90ad1e0b.hot-update.js
-│     │  │  │     │  ├─ layout.e43688bac9bb4c7a.hot-update.js
-│     │  │  │     │  └─ layout.ee0caaafc2cfad65.hot-update.js
-│     │  │  │     ├─ b08a98d220b61f75.webpack.hot-update.json
-│     │  │  │     ├─ b133e4a256b9be6d.webpack.hot-update.json
-│     │  │  │     ├─ b1b316807294cd60.webpack.hot-update.json
-│     │  │  │     ├─ b4aeb99370bfc067.webpack.hot-update.json
-│     │  │  │     ├─ b6ab8a1a37070170.webpack.hot-update.json
-│     │  │  │     ├─ b9c1a9754717e3bf.webpack.hot-update.json
-│     │  │  │     ├─ e038e2fc90ad1e0b.webpack.hot-update.json
-│     │  │  │     ├─ e43688bac9bb4c7a.webpack.hot-update.json
-│     │  │  │     ├─ ee0caaafc2cfad65.webpack.hot-update.json
-│     │  │  │     ├─ webpack.097963f3bd58962f.hot-update.js
-│     │  │  │     ├─ webpack.0ef9a2fb579b29d7.hot-update.js
-│     │  │  │     ├─ webpack.0f6e219f9344f4dd.hot-update.js
-│     │  │  │     ├─ webpack.10329f4b0997e0f3.hot-update.js
-│     │  │  │     ├─ webpack.1fa9b68ea941c2a9.hot-update.js
-│     │  │  │     ├─ webpack.38a95d3e521dff44.hot-update.js
-│     │  │  │     ├─ webpack.4a3e3644bb491b7c.hot-update.js
-│     │  │  │     ├─ webpack.54dbb85854b2adb6.hot-update.js
-│     │  │  │     ├─ webpack.555a93b3f94c1476.hot-update.js
-│     │  │  │     ├─ webpack.58f17eb112fef788.hot-update.js
-│     │  │  │     ├─ webpack.7698468573828df3.hot-update.js
-│     │  │  │     ├─ webpack.7db868e547f64e87.hot-update.js
-│     │  │  │     ├─ webpack.81535c7fd8e5ae70.hot-update.js
-│     │  │  │     ├─ webpack.816271d59198802e.hot-update.js
-│     │  │  │     ├─ webpack.8643defd06072aa2.hot-update.js
-│     │  │  │     ├─ webpack.874c367e783acfc1.hot-update.js
-│     │  │  │     ├─ webpack.8fbf0ce3f4edccfa.hot-update.js
-│     │  │  │     ├─ webpack.8fc0ef9758c0b114.hot-update.js
-│     │  │  │     ├─ webpack.90a0aba7cbe81b75.hot-update.js
-│     │  │  │     ├─ webpack.9d448b7bf6f567e4.hot-update.js
-│     │  │  │     ├─ webpack.9dec826812e616aa.hot-update.js
-│     │  │  │     ├─ webpack.a1671f99c9bba275.hot-update.js
-│     │  │  │     ├─ webpack.a459c048085ce4f6.hot-update.js
-│     │  │  │     ├─ webpack.ad5ca603f381ada3.hot-update.js
-│     │  │  │     ├─ webpack.b08a98d220b61f75.hot-update.js
-│     │  │  │     ├─ webpack.b133e4a256b9be6d.hot-update.js
-│     │  │  │     ├─ webpack.b1b316807294cd60.hot-update.js
-│     │  │  │     ├─ webpack.b4aeb99370bfc067.hot-update.js
-│     │  │  │     ├─ webpack.b6ab8a1a37070170.hot-update.js
-│     │  │  │     ├─ webpack.b9c1a9754717e3bf.hot-update.js
-│     │  │  │     ├─ webpack.e038e2fc90ad1e0b.hot-update.js
-│     │  │  │     ├─ webpack.e43688bac9bb4c7a.hot-update.js
-│     │  │  │     └─ webpack.ee0caaafc2cfad65.hot-update.js
+│     │  │  │     │  │  └─ aibot
+│     │  │  │     │  │     └─ page.382be9c17eb01475.hot-update.js
+│     │  │  │     │  ├─ layout.10c182132a5e8aa7.hot-update.js
+│     │  │  │     │  ├─ layout.37cb5b39b47680cd.hot-update.js
+│     │  │  │     │  ├─ layout.38409ca6496870c8.hot-update.js
+│     │  │  │     │  ├─ layout.3a113febba780f8f.hot-update.js
+│     │  │  │     │  ├─ layout.3e979989dfce0cf7.hot-update.js
+│     │  │  │     │  ├─ layout.5a1647cd23ef5456.hot-update.js
+│     │  │  │     │  ├─ layout.68ae4104398453c0.hot-update.js
+│     │  │  │     │  ├─ layout.9d05625d756e8d68.hot-update.js
+│     │  │  │     │  ├─ layout.ad1963926e7e79ba.hot-update.js
+│     │  │  │     │  ├─ layout.d6fe6983886367ca.hot-update.js
+│     │  │  │     │  ├─ layout.e59a27a7877709c5.hot-update.js
+│     │  │  │     │  └─ layout.fd11a99fa4a60016.hot-update.js
+│     │  │  │     ├─ d6fe6983886367ca.webpack.hot-update.json
+│     │  │  │     ├─ e59a27a7877709c5.webpack.hot-update.json
+│     │  │  │     ├─ e775c1095543d6d6.webpack.hot-update.json
+│     │  │  │     ├─ fd11a99fa4a60016.webpack.hot-update.json
+│     │  │  │     ├─ webpack.10c182132a5e8aa7.hot-update.js
+│     │  │  │     ├─ webpack.13ee33f2c949bbe3.hot-update.js
+│     │  │  │     ├─ webpack.37cb5b39b47680cd.hot-update.js
+│     │  │  │     ├─ webpack.382be9c17eb01475.hot-update.js
+│     │  │  │     ├─ webpack.38409ca6496870c8.hot-update.js
+│     │  │  │     ├─ webpack.3a113febba780f8f.hot-update.js
+│     │  │  │     ├─ webpack.3e979989dfce0cf7.hot-update.js
+│     │  │  │     ├─ webpack.548c7a01cc31fc21.hot-update.js
+│     │  │  │     ├─ webpack.5a1647cd23ef5456.hot-update.js
+│     │  │  │     ├─ webpack.68ae4104398453c0.hot-update.js
+│     │  │  │     ├─ webpack.72811c2dccdebf6b.hot-update.js
+│     │  │  │     ├─ webpack.9d05625d756e8d68.hot-update.js
+│     │  │  │     ├─ webpack.ad1963926e7e79ba.hot-update.js
+│     │  │  │     ├─ webpack.afb5c8a2e0ce9f30.hot-update.js
+│     │  │  │     ├─ webpack.d6fe6983886367ca.hot-update.js
+│     │  │  │     ├─ webpack.e59a27a7877709c5.hot-update.js
+│     │  │  │     ├─ webpack.e775c1095543d6d6.hot-update.js
+│     │  │  │     └─ webpack.fd11a99fa4a60016.hot-update.js
 │     │  │  ├─ trace
 │     │  │  └─ types
 │     │  │     ├─ app
-│     │  │     │  ├─ api
-│     │  │     │  │  └─ ai-assistant
-│     │  │     │  │     └─ message
-│     │  │     │  │        └─ route.ts
-│     │  │     │  ├─ caregiver
-│     │  │     │  │  └─ page.ts
 │     │  │     │  ├─ doctor
+│     │  │     │  │  ├─ aibot
+│     │  │     │  │  │  └─ page.ts
 │     │  │     │  │  └─ page.ts
 │     │  │     │  ├─ layout.ts
-│     │  │     │  ├─ login
-│     │  │     │  │  └─ page.ts
-│     │  │     │  └─ logout
-│     │  │     │     └─ route.ts
+│     │  │     │  └─ page.ts
 │     │  │     ├─ cache-life.d.ts
 │     │  │     ├─ package.json
 │     │  │     ├─ routes.d.ts
@@ -691,6 +633,8 @@ home-care-station
 │     │  │  └─ prescriptions
 │     │  │     └─ page.tsx
 │     │  ├─ doctor
+│     │  │  ├─ aibot
+│     │  │  │  └─ page.tsx
 │     │  │  ├─ page.tsx
 │     │  │  └─ prescriptions
 │     │  │     ├─ page.tsx
@@ -713,6 +657,8 @@ home-care-station
 │     ├─ components
 │     │  ├─ ai
 │     │  │  └─ ai-chat-panel.tsx
+│     │  ├─ alerts
+│     │  │  └─ realtime-alert-listener.tsx
 │     │  ├─ assistant
 │     │  │  └─ ai-command-box.tsx
 │     │  ├─ auth
@@ -783,6 +729,8 @@ home-care-station
 │     │  ├─ constants
 │     │  │  └─ doctor-sidebar.ts
 │     │  ├─ constants.ts
+│     │  ├─ store
+│     │  │  └─ use-patient-store.ts
 │     │  ├─ supabase
 │     │  │  ├─ admin.ts
 │     │  │  ├─ browser.ts
