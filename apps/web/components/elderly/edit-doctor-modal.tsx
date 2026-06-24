@@ -12,7 +12,7 @@ export function EditDoctorModal({ profile }: { profile: Database["public"]["Tabl
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [careStatus, setCareStatus] = useState(profile.care_status || "Ổn định");
+  const [careStatus, setCareStatus] = useState(profile.care_status || "stable");
   const [medicalConditions, setMedicalConditions] = useState(profile.medical_conditions?.join(", ") || "");
   const [allergies, setAllergies] = useState(profile.allergies?.join(", ") || "");
   const [notes, setNotes] = useState(profile.notes || "");
@@ -52,7 +52,7 @@ export function EditDoctorModal({ profile }: { profile: Database["public"]["Tabl
     <>
       <button 
         onClick={() => {
-          setCareStatus(profile.care_status || "Ổn định");
+          setCareStatus(profile.care_status || "stable");
           setMedicalConditions(profile.medical_conditions?.join(", ") || "");
           setAllergies(profile.allergies?.join(", ") || "");
           setNotes(profile.notes || "");
@@ -81,9 +81,9 @@ export function EditDoctorModal({ profile }: { profile: Database["public"]["Tabl
                   value={careStatus} onChange={(e) => setCareStatus(e.target.value)}
                   className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none transition focus:border-blue-500 focus:bg-white dark:border-white/10 dark:bg-slate-950"
                 >
-                  <option value="Ổn định">Ổn định (Xanh)</option>
-                  <option value="Cần theo dõi">Cần theo dõi (Cam)</option>
-                  <option value="Nguy hiểm">Nguy hiểm (Đỏ)</option>
+                  <option value="stable">Ổn định (Xanh)</option>
+                  <option value="needs_attention">Cần theo dõi (Cam)</option>
+                  <option value="critical">Nguy hiểm (Đỏ)</option>
                 </select>
               </div>
 

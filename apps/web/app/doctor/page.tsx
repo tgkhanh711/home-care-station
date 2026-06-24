@@ -60,9 +60,9 @@ export default async function DoctorDashboardPage(props: { searchParams?: Promis
 
   const patientCards: PatientCard[] = profiles?.map((p) => {
     let tone: PatientCard["tone"] = "slate";
-    if (p.care_status === "Ổn định") tone = "emerald";
-    if (p.care_status === "Cần theo dõi") tone = "orange";
-    if (p.care_status === "Nguy hiểm") tone = "blue"; 
+    if (p.care_status === "stable") tone = "emerald";
+    if (p.care_status === "needs_attention") tone = "orange";
+    if (p.care_status === "critical") tone = "blue"; 
     return { id: p.id, name: p.full_name, note: p.medical_conditions?.[0] || "Chưa có bệnh nền", active: p.id === selectedPatientId, tone };
   }) || [];
 
@@ -71,8 +71,8 @@ export default async function DoctorDashboardPage(props: { searchParams?: Promis
   const patientRows: PatientRow[] = filteredProfiles.map((p) => {
     const age = p.dob ? new Date().getFullYear() - new Date(p.dob).getFullYear() : "N/A";
     let alertType: PatientRow["alert"] = "stable";
-    if (p.care_status === "Nguy hiểm") alertType = "critical";
-    if (p.care_status === "Cần theo dõi") alertType = "warning";
+    if (p.care_status === "critical") alertType = "critical";
+    if (p.care_status === "needs_attention") alertType = "warning";
 
     return { id: p.id, name: p.full_name, age: age, condition: p.medical_conditions?.join(", ") || "Không ghi nhận", alert: alertType, summary: "Chờ thiết bị trạm gửi lên...", lastUpdated: new Date(p.updated_at).toLocaleDateString("vi-VN"), raw_profile: p };
   });

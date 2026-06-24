@@ -501,7 +501,8 @@ export async function registerCaregiverAction(
             "Không có ghi chú y tế"
           ),
           allergies: makeTextArray(input.allergies, "Không có"),
-          emergency_contact: input.emergencyContact
+          emergency_contact: input.emergencyContact,
+          care_status: "stable"
         })
         .select("id")
         .single();

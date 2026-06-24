@@ -396,7 +396,7 @@ export function RegisterCaregiverForm({
                 </p>
               ) : (
                 <p className="text-xs text-muted-foreground">
-                  Chọn ngày bằng lịch hoặc nhập theo định dạng ngày/tháng/năm.
+                  Chọn ngày theo thứ tự tháng/ngày/năm.
                 </p>
               )}
             </div>
@@ -458,8 +458,7 @@ export function RegisterCaregiverForm({
               </select>
 
               <p className="text-xs text-muted-foreground">
-                Có thể để trống ở giai đoạn đầu. Admin/doctor có thể gán lại ở
-                cụm sau.
+                Có thể để trống.
               </p>
             </div>
 

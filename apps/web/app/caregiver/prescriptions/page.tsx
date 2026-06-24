@@ -1,10 +1,13 @@
 import Link from "next/link";
 import type { Database } from "@/database";
+import type { LucideIcon } from "lucide-react";
 import {
   Bot,
   FileText,
   Home,
   Pill,
+  Search, // Thêm icon Search cho Topbar
+  Settings // Thêm icon Settings cho Topbar
 } from "lucide-react";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { getElderlyProfiles } from "@/app/actions/elderly";
@@ -29,9 +32,21 @@ type PrescriptionWithItems = {
 
 const sidebarItems = [
   { href: "/caregiver", label: "Trang chính", icon: Home },
-  { href: "/caregiver/prescriptions", label: "Lịch thuốc & Y lệnh", icon: Pill, active: true },
-  { href: "/caregiver", label: "AI Care", icon: Bot },
+  { href: "/caregiver/prescriptions", label: "Lịch thuốc", icon: Pill, active: true },
+  { href: "/caregiver/aicare", label: "AI Care", icon: Bot },
 ];
+
+function SidebarItem({ href, label, icon: Icon, active = false }: { href: string; label: string; icon: LucideIcon; active?: boolean; }) {
+  return (
+    <Link 
+      href={href} 
+      className={["flex items-center gap-3 rounded-xl px-3 py-3 text-[15px] font-semibold transition", active ? "bg-blue-100 text-blue-900 shadow-sm dark:bg-blue-500/20 dark:text-white" : "text-slate-600 hover:bg-white hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/5 dark:hover:text-white"].join(" ")}
+    >
+      <Icon className="size-5 shrink-0" strokeWidth={2.4} />
+      <span>{label}</span>
+    </Link>
+  );
+}
 
 export default async function CaregiverPrescriptionsPage() {
   const { data: profiles } = await getElderlyProfiles();
@@ -43,35 +58,39 @@ export default async function CaregiverPrescriptionsPage() {
 
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-      <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-4 shadow-sm dark:border-white/8 dark:bg-slate-950 lg:px-5">
-        <div className="flex h-full shrink-0 items-center gap-4">
-          <div className="grid size-10 shrink-0 place-items-center rounded-full bg-blue-600 text-sm font-black text-white shadow-lg shadow-blue-900/20 dark:bg-blue-500">
-            HCS
+      
+      {/* ĐÃ ĐỒNG BỘ: TOPBAR GIỐNG HỆT TRANG CHÍNH */}
+      <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-4 shadow-sm transition-colors dark:border-white/8 dark:bg-slate-950 lg:px-5">
+        <div className="flex h-full shrink-0 items-center gap-4 border-r border-transparent pr-4 md:w-56 md:border-slate-200 dark:md:border-white/8">
+          <div className="grid size-10 shrink-0 place-items-center rounded-full bg-blue-600 text-sm font-black text-white shadow-lg dark:bg-blue-500">HCS</div>
+          <div className="hidden min-w-0 md:block">
+            <p className="truncate text-sm font-black leading-4 text-slate-900 dark:text-white">Home Care Station</p>
+            <p className="truncate text-xs font-semibold text-slate-500 dark:text-slate-400">Trung tâm người nhà</p>
           </div>
-          <p className="hidden text-sm font-black leading-4 md:block">Trung tâm người nhà</p>
+        </div>
+        <div className="flex min-w-0 flex-1 items-center justify-center px-4">
+          <div className="hidden h-11 w-full max-w-150 items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 px-4 text-slate-500 shadow-sm dark:border-white/10 dark:bg-white/4 md:flex">
+            <Search className="size-5 shrink-0 text-blue-600 dark:text-blue-300" strokeWidth={2.4} />
+            <span className="truncate text-sm font-medium">Tìm tên bệnh nhân, lịch thuốc hoặc cảnh báo...</span>
+          </div>
         </div>
         <div className="flex h-full shrink-0 items-center gap-2 lg:gap-3">
           <ThemeToggle />
-          <Link href="/caregiver">
-            <button className="whitespace-nowrap h-11 shrink-0 rounded-2xl bg-blue-600 px-5 text-sm font-black text-white shadow-lg transition hover:bg-blue-700 dark:bg-blue-500">
-              Quay lại
-            </button>
-          </Link>
+          <button type="button" className="grid size-11 shrink-0 place-items-center rounded-2xl border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-200 dark:border-white/10 dark:bg-white/4">
+            <Settings className="size-4" />
+          </button>
+          <form action="/logout" method="post">
+            <button type="submit" className="h-11 rounded-2xl bg-blue-600 px-5 text-sm font-black text-white hover:bg-blue-700 dark:bg-blue-500">Đăng xuất</button>
+          </form>
         </div>
       </header>
 
       <div className="grid flex-1 overflow-hidden grid-cols-1 lg:grid-cols-[244px_1fr]">
         <aside className="custom-scrollbar hidden overflow-y-auto border-r border-slate-200 bg-slate-50/50 px-3 py-4 dark:border-white/8 dark:bg-slate-950/50 lg:block">
           <nav className="space-y-1">
-            {sidebarItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link key={item.label} href={item.href} className={['flex items-center gap-3 rounded-xl px-3 py-3 text-[15px] font-semibold transition', item.active ? 'bg-blue-100 text-blue-900 shadow-sm dark:bg-blue-500/20 dark:text-white' : 'text-slate-600 hover:bg-white hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/5 dark:hover:text-white'].join(' ')}>
-                  <Icon className="size-5 shrink-0" strokeWidth={2.4} />
-                  <span>{item.label}</span>
-                </Link>
-              );
-            })}
+            {sidebarItems.map((item) => (
+              <SidebarItem key={item.label} {...item} />
+            ))}
           </nav>
         </aside>
 
