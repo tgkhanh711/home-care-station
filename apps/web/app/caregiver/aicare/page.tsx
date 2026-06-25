@@ -89,11 +89,7 @@ export default function CaregiverAIBotPage() {
     setIsTyping(true);
 
     try {
-      const relativeContext = selectedPatient 
-        ? `Ngữ cảnh: Đang hỏi về người thân có ID: ${selectedPatient}. ` 
-        : "";
-      
-      const prompt = relativeContext + userMsg.content;
+      const prompt = userMsg.content;
 
       const response = await sendToAIAssistant({
         elderly_profile_id: selectedPatient || "",
@@ -195,7 +191,7 @@ export default function CaregiverAIBotPage() {
                     <span className="text-[11px] font-bold text-slate-400 px-1 uppercase tracking-wider">
                       {msg.role === "user" ? "Bạn" : "AI Care"} • {msg.timestamp.toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" })}
                     </span>
-                    <div className={`rounded-2xl px-5 py-3.5 text-[15px] font-medium leading-relaxed shadow-sm ${
+                    <div className={`whitespace-pre-wrap rounded-2xl px-5 py-3.5 text-[15px] font-medium leading-relaxed shadow-sm ${
                       msg.role === "user" 
                         ? "bg-blue-600 text-white rounded-tr-sm dark:bg-blue-600" 
                         : "bg-white border border-slate-200 text-slate-800 rounded-tl-sm dark:bg-slate-900/80 dark:border-white/10 dark:text-slate-200"
